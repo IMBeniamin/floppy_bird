@@ -43,8 +43,8 @@ def mainloop():
         pygame.event.pump()
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_SPACE]:
-            floppy_bird = floppy_bird.move((0, -10))
-        if pressed[pygame.K_q]:
+            floppy_bird = floppy_bird.move((0, -5))
+        elif pressed[pygame.K_q]:
             done = True
         else:
             floppy_bird = floppy_bird.move((0, 5))
