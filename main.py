@@ -15,6 +15,8 @@ cl = 1200
 posX = 10
 posY = 10
 velX = velY = 1
+not_pressed = True
+counter = 0
 
 pygame.init()
 screen = pygame.display.set_mode((cl, ch))
@@ -30,33 +32,32 @@ screen.blit(floppy_bird_srf, floppy_bird)
 def mainloop():
     """Main loop of the game
     """
-    global posX, posY, floppy_bird, floppy_bird_srf
+    global posX, posY, floppy_bird, floppy_bird_srf, counter, not_pressed
 
     done = False
     while not done:
+        counter += 1
+        clock.tick(60)
         screen.fill((0, 0, 0))
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 done = True
-
+        if not screen.get_rect().contains(floppy_bird):
+            done = True
         pygame.event.pump()
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_SPACE]:
             floppy_bird = floppy_bird.move((0, -5))
+            pygame.key.set_repeat(1, 1000)
         elif pressed[pygame.K_q]:
             done = True
         else:
             floppy_bird = floppy_bird.move((0, 5))
-        '''
-        else:
-            posY += 1
-        '''
 
         screen.blit(floppy_bird_srf, floppy_bird)
         # pygame.draw.rect(screen, colors['blue'], pygame.Rect(posX, posY, 50, 50))
 
-        clock.tick(60)
         pygame.display.flip()
 
 
