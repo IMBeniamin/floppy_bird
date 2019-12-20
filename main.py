@@ -29,6 +29,8 @@ floppy_bird.center = (350, 300)
 screen.blit(floppy_bird_srf, floppy_bird)
 
 a = "baubaumiau"
+
+
 def mainloop():
     """Main loop of the game
     """
