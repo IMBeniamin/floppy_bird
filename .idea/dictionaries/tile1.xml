@@ -1,6 +1,10 @@
 <component name="ProjectDictionaryState">
   <dictionary name="tile1">
     <words>
+      <w>dheight</w>
+      <w>dwidth</w>
+      <w>pheight</w>
+      <w>pwidth</w>
       <w>pygame</w>
     </words>
   </dictionary>
